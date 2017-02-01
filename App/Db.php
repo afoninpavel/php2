@@ -22,4 +22,15 @@ class Db
 
     }
 
+    public function query($sql)
+    {
+        $sth = $this->dbh->prepare($sql);
+        $res = $sth->execute();
+        if (false !== $res) {
+            return  $sth->fetchAll();
+        }
+        return [];
+
+    }
+
 }
