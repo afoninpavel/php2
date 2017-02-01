@@ -6,8 +6,20 @@ namespace App;
 
 class Db
 {
-   public function __construct()
+    protected  $dbh;
+    protected $dsn ='mysql:host=127.0.0.1;dbname=test';
+
+    public function __construct()
     {
-        echo 'Db';
+        $this->dbh = new \PDO($this->dsn,'root','');
     }
+
+    public function execute($sql)
+    {
+        $sth = $this->dbh->prepare($sql);
+        $res = $sth->execute();
+        return $res;
+
+    }
+
 }

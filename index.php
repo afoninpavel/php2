@@ -3,5 +3,5 @@
 require __DIR__ . '/avtoload.php';
 
 $db = new \App\Db();
-
-echo 'Hello';
+$res = $db->execute('CREATE TABLE person (id SERIAL)');
+var_dump($res);
