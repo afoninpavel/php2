@@ -20,4 +20,5 @@ class Model
             static::class
         );
     }
+
 }
